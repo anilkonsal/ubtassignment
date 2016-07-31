@@ -1,27 +1,52 @@
-# Laravel PHP Framework
+# UBT assignment
+This project has been developed using Laravel 5.2 with Service/Repository pattern. for setting up this project,
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Steps to run locally
+1. Clone the code of this Repository, then create a database on your local system.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+2. Change the MySql database credentials in .env file.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+3. In the shell prompt, Change to the project directory.
 
-## Official Documentation
+4. Run this command:
+```
+php artisan migrate
+```
+ This will create the database tables required to run the project.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+5. Create the virtualhost for apache (say ubtassign.local) to point to /path/to/project/public
+```
+<VirtualHost *:80>
+    ServerName ubtassign.local
+    DocumentRoot "/Library/WebServer/Documents/ubtassignment/public"
 
-## Contributing
+    <Directory "/Library/WebServer/Documents/ubtassignment/public">
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+6. In the local hosts file, point ubtassign.local to 127.0.0.1
+```
+127.0.0.1       ubtassign.local
+```
 
-## Security Vulnerabilities
+7. Navigate to ubtassign.local in the browser. You will see the basic landing page of project.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+8. You will have to create one user by clicking on Register Link on the top right navbar.
 
-## License
+9. After registering, login using the details with which you registered.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+10. Go to http://developer.edmunds.com/ and register for a new API Key.
+
+11. Open config/app.php file and put your API Key in 'edmunds' sections
+```
+'edmunds' => [
+        'url'   =>  'http://api.edmunds.com/api/vehicle/v2/',
+        'app_key'   =>  '<put your key here>'
+    ]
+```
+12. Click on the Link 'Import Makes & Models' on the top navbar being logged in, and click on button 'Click Here' on the page which appears. This will start fetching the makes and models from the edmunds api and putting in the local database if not already exist.
