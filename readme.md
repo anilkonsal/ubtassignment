@@ -44,6 +44,26 @@ This will create the database tables required to run the project.
 14. When you select one of the options from autocomplete, start typing in Model Text box, this will also show an autocomplete showing the values based on the make selected in the first text box.
 15. When you select the model, a photo of car will be displayed in background.
 
+## Web API End points
+The Routes of these APIs are defined in app/Http/routes.php file.
+
+1. For fetching all makes or makes starting with some characters.
+    ```
+    /api/make/{make}
+    ```
+    or
+    ```
+    /api/make
+    ```
+2. For fetching models based on a make.
+    ```
+    /api/model/{make_id}
+    ```
+3. For fetching photos of Car.
+    ```
+    /api/photo/{make}/{model}
+    ```
+
 ## Considerations in the project
 
 1. Media API of edmunds did not work as it was giving Authentication Error, So could not use the API. Stub for local API and how to fetch in AngularJS has been created.
