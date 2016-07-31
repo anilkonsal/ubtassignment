@@ -50,3 +50,9 @@ php artisan migrate
     ]
 ```
 12. Click on the Link 'Import Makes & Models' on the top navbar being logged in, and click on button 'Click Here' on the page which appears. This will start fetching the makes and models from the edmunds api and putting in the local database if not already exist.
+
+13. On the landing page, you will see two text boxes for Make and Model, Start typing in the Make textbox, e.g. Chevrolet, you will see the autocomplete.
+
+14. When you select one of the options from autocomplete, start typing in Model Text box, this will also show an autocomplete showing the values based on the make selected in the first text box.
+
+15. When you select the model, a photo of car will be displayed in background.
