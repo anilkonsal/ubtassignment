@@ -3,17 +3,13 @@ This project has been developed using Laravel 5.2 with Service/Repository patter
 
 ## Steps to run locally
 1. Clone the code of this Repository, then create a database on your local system.
-
 2. Change the MySql database credentials in .env file.
-
 3. In the shell prompt, Change to the project directory.
-
 4. Run this command:
 ```
 php artisan migrate
 ```
  This will create the database tables required to run the project.
-
 5. Create the virtualhost for apache (say ubtassign.local) to point to /path/to/project/public
 ```
 <VirtualHost *:80>
@@ -28,20 +24,14 @@ php artisan migrate
     </Directory>
 </VirtualHost>
 ```
-
 6. In the local hosts file, point ubtassign.local to 127.0.0.1
 ```
 127.0.0.1       ubtassign.local
 ```
-
 7. Navigate to ubtassign.local in the browser. You will see the basic landing page of project.
-
 8. You will have to create one user by clicking on Register Link on the top right navbar.
-
 9. After registering, login using the details with which you registered.
-
 10. Go to http://developer.edmunds.com/ and register for a new API Key.
-
 11. Open config/app.php file and put your API Key in 'edmunds' sections
 ```
 'edmunds' => [
@@ -50,9 +40,6 @@ php artisan migrate
     ]
 ```
 12. Click on the Link 'Import Makes & Models' on the top navbar being logged in, and click on button 'Click Here' on the page which appears. This will start fetching the makes and models from the edmunds api and putting in the local database if not already exist.
-
 13. On the landing page, you will see two text boxes for Make and Model, Start typing in the Make textbox, e.g. Chevrolet, you will see the autocomplete.
-
 14. When you select one of the options from autocomplete, start typing in Model Text box, this will also show an autocomplete showing the values based on the make selected in the first text box.
-
 15. When you select the model, a photo of car will be displayed in background.
