@@ -43,3 +43,8 @@ This will create the database tables required to run the project.
 13. On the landing page, you will see two text boxes for Make and Model, Start typing in the Make textbox, e.g. Chevrolet, you will see the autocomplete.
 14. When you select one of the options from autocomplete, start typing in Model Text box, this will also show an autocomplete showing the values based on the make selected in the first text box.
 15. When you select the model, a photo of car will be displayed in background.
+
+## Considerations in the project
+
+1. Media API of edmunds did not work as it was giving Authentication Error, So could not use the API. Stub for local API and how to fetch in AngularJS has been created.
+2. OAuth2.0 was not implemented due to lack of time.
